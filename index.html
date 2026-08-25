@@ -24,63 +24,114 @@
 
 <body class="bg-[#000000] mx-auto max-w-[1200px] lg:px-[120px] px-[20px] antialiased scroll-smooth">
   <header class="w-full py-4">
-    <nav id="navbar" class="flex items-center justify-between px-4 text-white">
+    <nav id="navbar" class="relative z-50 flex items-center justify-between px-4 py-4 text-white sm:px-6 lg:px-10">
 
-      <!-- Sisi Kiri: Logo & Menu Navigasi -->
-      <div class="flex items-center gap-8">
-        <!-- Logo -->
-        <a href="https://www.tiktok.com/@myatech.id"
-          class="flex items-center gap-[8px] text-[20px] font-medium tracking-tight">
-          <span>
-            <img src="src/icon/logo.svg" alt="">
-          </span>
-          Myatech.id
-        </a>
+      <!-- Sisi kiri: Logo -->
+      <a href="index.html"
+        class="flex shrink-0 items-center gap-2 text-[18px] font-medium tracking-tight sm:text-[20px]">
+        <img src="src/icon/logo.svg" alt="Logo Myatech.id" class="h-8 w-8 object-contain">
+        <span>Myatech.id</span>
+      </a>
 
-        <!-- Menu Navigasi -->
+      <!-- Menu desktop -->
+      <div class="hidden items-center gap-8 lg:flex">
         <ul class="flex items-center gap-6">
           <li>
-            <a href="index.html"
-              class="hidden md:block underline hover:scale-110 text-base font-medium transition-colors">
+            <a href="index.html" class="text-base font-medium transition duration-300 hover:scale-110 hover:underline">
               Home
             </a>
           </li>
 
-          <!-- Dropdown Menu -->
-          <li class="relative">
-            <button class="flex items-center gap-1 text-base font-medium transition-colors hidden md:block">
+          <li>
+            <a href="#roadmap" class="text-base font-medium transition duration-300 hover:scale-110 hover:underline">
               Roadmap
-            </button>
+            </a>
+          </li>
+
+          <li>
+            <a href="#contact" class="text-base font-medium transition duration-300 hover:scale-110 hover:underline">
+              Contact
+            </a>
+          </li>
+
+          <li>
+            <a href="#social" class="text-base font-medium transition duration-300 hover:scale-110 hover:underline">
+              Social Media
+            </a>
+          </li>
+        </ul>
+
+        <a href="https://github.com/igedemahayana" target="_blank" rel="noopener noreferrer"
+          class="flex items-center gap-2 rounded-lg bg-[#1B1F22] px-5 py-2.5 font-medium text-white transition duration-300 hover:scale-105 hover:bg-[#252a2f]">
+          <img src="src/icon/github.svg" alt="" class="h-5 w-5">
+          <span>My GitHub</span>
+        </a>
+      </div>
+
+      <!-- Tombol hamburger: mobile dan iPad/tablet -->
+      <button id="menu-toggle" type="button" aria-label="Buka menu navigasi" aria-controls="mobile-menu"
+        aria-expanded="false"
+        class="flex h-11 w-11 items-center justify-center rounded-lg border border-white/10 bg-[#1B1F22] transition duration-300 hover:bg-[#252a2f] lg:hidden">
+
+        <!-- Icon hamburger -->
+        <svg id="icon-menu" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+
+        <!-- Icon close -->
+        <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <!-- Overlay untuk mobile/tablet -->
+      <div id="menu-overlay"
+        class="pointer-events-none fixed inset-0 z-40 bg-black/60 opacity-0 transition-opacity duration-300 lg:hidden">
+      </div>
+
+      <!-- Menu mobile dan tablet -->
+      <div id="mobile-menu"
+        class="pointer-events-none absolute right-4 top-[calc(100%+8px)] z-50 w-[calc(100%-32px)] translate-y-[-12px] rounded-2xl border border-white/10 bg-[#121212] p-4 opacity-0 shadow-2xl transition-all duration-300 sm:right-6 sm:w-[360px] lg:hidden">
+
+        <ul class="flex flex-col gap-1">
+          <li>
+            <a href="index.html"
+              class="mobile-link block rounded-xl px-4 py-3 text-base font-medium transition hover:bg-white/10">
+              Home
+            </a>
+          </li>
+
+          <li>
+            <a href="#roadmap"
+              class="mobile-link block rounded-xl px-4 py-3 text-base font-medium transition hover:bg-white/10">
+              Roadmap
+            </a>
           </li>
 
           <li>
             <a href="#contact"
-              class="hidden md:block text-base font-medium hover:underline hover:scale-110 transition duration-300">
+              class="mobile-link block rounded-xl px-4 py-3 text-base font-medium transition hover:bg-white/10">
               Contact
             </a>
           </li>
 
           <li>
             <a href="#social"
-              class="hidden md:block text-base font-medium hover:underline hover:scale-110 transition duration-300">
+              class="mobile-link block rounded-xl px-4 py-3 text-base font-medium transition hover:bg-white/10">
               Social Media
             </a>
           </li>
         </ul>
-      </div>
 
-      <!-- Sisi Kanan: Button Github -->
-      <div class="hidden md:block">
+        <div class="my-4 h-px bg-white/10"></div>
+
         <a href="https://github.com/igedemahayana" target="_blank" rel="noopener noreferrer"
-          class="flex items-center gap-[8px] bg-[#1B1F22] text-white font-medium px-6 py-2.5 rounded-lg hover:scale-110 transition duration-300">
-          <img src="src/icon/github.svg" alt="">
-          <span>My Github</span>
+          class="mobile-link flex items-center justify-center gap-2 rounded-xl bg-[#1B1F22] px-5 py-3 font-medium text-white transition hover:bg-[#252a2f]">
+          <img src="src/icon/github.svg" alt="" class="h-5 w-5">
+          <span>My GitHub</span>
         </a>
-      </div>
-
-      <!-- Menu Hamburger -->
-      <div class="md:hidden">
-        <img src="src/icon/menu-hamburger.svg" alt="">
       </div>
     </nav>
 
@@ -818,6 +869,7 @@
 
 
   <script type="module" src="src/js/script.js"></script>
+  <script type="module" src="src/js/main.js"></script>
 </body>
 
 </html>
