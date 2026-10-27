@@ -1,708 +1,979 @@
 <!doctype html>
 <html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="src/css/style.css" rel="stylesheet" />
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="src/css/style.css" rel="stylesheet">
+    <link rel="icon" href="src/icon/Myatech.svg" />
+    <title>Myatech | Roadmap Web Developer</title>
 
-  <link rel="icon" href="src/icon/Myatech.svg">
-  <title>Myatech | Roadmap Web Developer</title>
+    <!-- 1. CDN Google Fonts (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- 1. CDN Google Fonts (Inter) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-    rel="stylesheet">
+    <!-- GSAP -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.3.8/dist/lenis.min.js"></script>
+  </head>
 
-  <!-- GSAP -->
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
-  <script src="https://unpkg.com/lenis@1.3.8/dist/lenis.min.js"></script>
-</head>
-
-<body class="bg-[#000000] mx-auto max-w-[1200px] lg:px-[120px] px-[20px] antialiased scroll-smooth">
-  <header class="w-full py-4">
-    <nav id="navbar" class="relative z-50 flex items-center justify-between px-4 py-4 text-white sm:px-6 lg:px-10">
-
-      <!-- Sisi kiri: Logo -->
-      <a href="index.html"
-        class="flex shrink-0 items-center gap-2 text-[18px] font-medium tracking-tight sm:text-[20px]">
-        <img src="src/icon/logo.svg" alt="Logo Myatech.id" class="h-8 w-8 object-contain">
-        <span>Myatech.id</span>
-      </a>
-
-      <!-- Menu desktop -->
-      <div class="hidden items-center gap-8 lg:flex">
-        <ul class="flex items-center gap-6">
-          <li>
-            <a href="index.html" class="text-base font-medium transition duration-300 hover:scale-110 hover:underline">
-              Home
-            </a>
-          </li>
-
-          <li>
-            <a href="#roadmap" class="text-base font-medium transition duration-300 hover:scale-110 hover:underline">
-              Roadmap
-            </a>
-          </li>
-
-          <li>
-            <a href="#contact" class="text-base font-medium transition duration-300 hover:scale-110 hover:underline">
-              Contact
-            </a>
-          </li>
-
-          <li>
-            <a href="#social" class="text-base font-medium transition duration-300 hover:scale-110 hover:underline">
-              Social Media
-            </a>
-          </li>
-        </ul>
-
-        <a href="https://github.com/igedemahayana" target="_blank" rel="noopener noreferrer"
-          class="flex items-center gap-2 rounded-lg bg-[#1B1F22] px-5 py-2.5 font-medium text-white transition duration-300 hover:scale-105 hover:bg-[#252a2f]">
-          <img src="src/icon/github.svg" alt="" class="h-5 w-5">
-          <span>My GitHub</span>
+  <body
+    class="mx-auto max-w-[1200px] scroll-smooth bg-[#000000] px-[20px] antialiased lg:px-[120px]"
+  >
+    <header class="w-full py-4">
+      <nav
+        id="navbar"
+        class="relative z-50 flex items-center justify-between px-4 py-4 text-white sm:px-6 lg:px-10"
+      >
+        <!-- Sisi kiri: Logo -->
+        <a
+          href="index.html"
+          class="flex shrink-0 items-center gap-2 text-[18px] font-medium tracking-tight sm:text-[20px]"
+        >
+          <img
+            src="src/icon/logo.svg"
+            alt="Logo Myatech.id"
+            class="h-8 w-8 object-contain"
+          />
+          <span>Myatech.id</span>
         </a>
-      </div>
 
-      <!-- Tombol hamburger: mobile dan iPad/tablet -->
-      <button id="menu-toggle" type="button" aria-label="Buka menu navigasi" aria-controls="mobile-menu"
-        aria-expanded="false"
-        class="flex h-11 w-11 items-center justify-center rounded-lg border border-white/10 bg-[#1B1F22] transition duration-300 hover:bg-[#252a2f] lg:hidden">
+        <!-- Menu desktop -->
+        <div class="hidden items-center gap-8 lg:flex">
+          <ul class="flex items-center gap-6">
+            <li>
+              <a
+                href="index.html"
+                class="text-base font-medium transition duration-300 hover:scale-110 hover:underline"
+              >
+                Home
+              </a>
+            </li>
 
-        <!-- Icon hamburger -->
-        <svg id="icon-menu" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-          stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
+            <li>
+              <a
+                href="#roadmap"
+                class="text-base font-medium transition duration-300 hover:scale-110 hover:underline"
+              >
+                Roadmap
+              </a>
+            </li>
 
-        <!-- Icon close -->
-        <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24"
-          stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
+            <li>
+              <a
+                href="#contact"
+                class="text-base font-medium transition duration-300 hover:scale-110 hover:underline"
+              >
+                Contact
+              </a>
+            </li>
 
-      <!-- Overlay untuk mobile/tablet -->
-      <div id="menu-overlay"
-        class="pointer-events-none fixed inset-0 z-40 bg-black/60 opacity-0 transition-opacity duration-300 lg:hidden">
-      </div>
+            <li>
+              <a
+                href="#social"
+                class="text-base font-medium transition duration-300 hover:scale-110 hover:underline"
+              >
+                Social Media
+              </a>
+            </li>
+          </ul>
 
-      <!-- Menu mobile dan tablet -->
-      <div id="mobile-menu"
-        class="pointer-events-none absolute right-4 top-[calc(100%+8px)] z-50 w-[calc(100%-32px)] translate-y-[-12px] rounded-2xl border border-white/10 bg-[#121212] p-4 opacity-0 shadow-2xl transition-all duration-300 sm:right-6 sm:w-[360px] lg:hidden">
-
-        <ul class="flex flex-col gap-1">
-          <li>
-            <a href="index.html"
-              class="mobile-link block rounded-xl px-4 py-3 text-base font-medium transition hover:bg-white/10">
-              Home
-            </a>
-          </li>
-
-          <li>
-            <a href="#roadmap"
-              class="mobile-link block rounded-xl px-4 py-3 text-base font-medium transition hover:bg-white/10">
-              Roadmap
-            </a>
-          </li>
-
-          <li>
-            <a href="#contact"
-              class="mobile-link block rounded-xl px-4 py-3 text-base font-medium transition hover:bg-white/10">
-              Contact
-            </a>
-          </li>
-
-          <li>
-            <a href="#social"
-              class="mobile-link block rounded-xl px-4 py-3 text-base font-medium transition hover:bg-white/10">
-              Social Media
-            </a>
-          </li>
-        </ul>
-
-        <div class="my-4 h-px bg-white/10"></div>
-
-        <a href="https://github.com/igedemahayana" target="_blank" rel="noopener noreferrer"
-          class="mobile-link flex items-center justify-center gap-2 rounded-xl bg-[#1B1F22] px-5 py-3 font-medium text-white transition hover:bg-[#252a2f]">
-          <img src="src/icon/github.svg" alt="" class="h-5 w-5">
-          <span>My GitHub</span>
-        </a>
-      </div>
-    </nav>
-
-  </header>
-
-  <main>
-    <!-- Hero Section -->
-    <section id="hero-section">
-      <div class="my-[60px] md:my-[100px]">
-        <div class="flex flex-col items-center justify-center gap-[32px]">
-
-          <h1 id="title-hero"
-            class="md:text-[56px] md:leading-[56px] text-[32px] leading-[32px] text-center tracking-[-1px] text-white font-semibold">
-            Roadmap Belajar Frontend & Backend Web Developer di Tahun 2026
-          </h1>
-
-          <p id="paragraf-hero"
-            class="text-[20px] text-center md:w-[812px] leading-[24px] tracking-[-1px] text-text-body font-medium">
-            Ini dia Roadmap kuasai <span class="text-white">Frontend + Backend Web Developer</span> di tengah Era Vibe
-            Coding, alur yang sudah dibuat oleh <span class="text-white">Myatech.id</span> terbaru 2026 serta rincian
-            disetiap tech stack yang harus
-            dikerjakan sebelum pindah ke bahasa, library atau framework lainnya
-          </p>
-
-
-          <a id="button-hero" href="#front-end-section"
-            class="inline-flex items-center gap-[10px] bg-button-blue-default hover:bg-button-blue-hover text-white font-medium px-6 py-2.5 rounded-[12px] transition duration-300">
-            <span>Lihat Roadmap</span>
-            <span>
-              <img src="src/icon/Arrow.svg" alt="" />
-            </span>
+          <a
+            href="https://github.com/igedemahayana"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-2 rounded-lg bg-[#1B1F22] px-5 py-2.5 font-medium text-white transition duration-300 hover:scale-105 hover:bg-[#252a2f]"
+          >
+            <img src="src/icon/github.svg" alt="" class="h-5 w-5" />
+            <span>My GitHub</span>
           </a>
         </div>
 
-        <!-- Image -->
-        <div id="image-hero" class="mt-[64px]">
-          <img src="src/images/Image Hero Section.jpg" alt="" class="rounded- md:rounded-[18px]">
+        <!-- Tombol hamburger: mobile dan iPad/tablet -->
+        <button
+          id="menu-toggle"
+          type="button"
+          aria-label="Buka menu navigasi"
+          aria-controls="mobile-menu"
+          aria-expanded="false"
+          class="flex h-11 w-11 items-center justify-center rounded-lg border border-white/10 bg-[#1B1F22] transition duration-300 hover:bg-[#252a2f] lg:hidden"
+        >
+          <!-- Icon hamburger -->
+          <svg
+            id="icon-menu"
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+
+          <!-- Icon close -->
+          <svg
+            id="icon-close"
+            xmlns="http://www.w3.org/2000/svg"
+            class="hidden h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+
+        <!-- Overlay untuk mobile/tablet -->
+        <div
+          id="menu-overlay"
+          class="pointer-events-none fixed inset-0 z-40 bg-black/60 opacity-0 transition-opacity duration-300 lg:hidden"
+        ></div>
+
+        <!-- Menu mobile dan tablet -->
+        <div
+          id="mobile-menu"
+          class="pointer-events-none absolute top-[calc(100%+8px)] right-4 z-50 w-[calc(100%-32px)] translate-y-[-12px] rounded-2xl border border-white/10 bg-[#121212] p-4 opacity-0 shadow-2xl transition-all duration-300 sm:right-6 sm:w-[360px] lg:hidden"
+        >
+          <ul class="flex flex-col gap-1">
+            <li>
+              <a
+                href="index.html"
+                class="mobile-link block rounded-xl px-4 py-3 text-base font-medium transition hover:bg-white/10"
+              >
+                Home
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="#roadmap"
+                class="mobile-link block rounded-xl px-4 py-3 text-base font-medium transition hover:bg-white/10"
+              >
+                Roadmap
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="#contact"
+                class="mobile-link block rounded-xl px-4 py-3 text-base font-medium transition hover:bg-white/10"
+              >
+                Contact
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="#social"
+                class="mobile-link block rounded-xl px-4 py-3 text-base font-medium transition hover:bg-white/10"
+              >
+                Social Media
+              </a>
+            </li>
+          </ul>
+
+          <div class="my-4 h-px bg-white/10"></div>
+
+          <a
+            href="https://github.com/igedemahayana"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mobile-link flex items-center justify-center gap-2 rounded-xl bg-[#1B1F22] px-5 py-3 font-medium text-white transition hover:bg-[#252a2f]"
+          >
+            <img src="src/icon/github.svg" alt="" class="h-5 w-5" />
+            <span>My GitHub</span>
+          </a>
         </div>
+      </nav>
+    </header>
 
-      </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about-section">
-      <div class="my-[60px] md:my-[120px] font-sans flex flex-col md:flex-row justify-between md:gap-[62px]">
-        <div>
-          <h1 class="text-[18px] md:text-[22px] font-sans text-white">
-            About Myatech
-          </h1>
-        </div>
-        <div class="mt-[20px] md:mt-0 flex flex-col gap-[16px] w-auto md:w-[800px]">
-          <h1 class="text-[18px] md:text-[32px] text-white leading-[23px] md:leading-[32px] text-justify">
-            Myatech adalah roadmap belajar Web Development yang dirancang untuk membantumu memahami perjalanan menjadi
-            seorang Frontend dan Backend Developer secara terstruktur.
-          </h1>
-          <p
-            class="text-[16px] md:text-[22px] font-medium text-white opacity-80 leading-[16px] md:leading-[22px] text-justify">
-            Mulai dari fundamental HTML, CSS, dan JavaScript, lalu lanjutkan perjalananmu menuju framework, library,
-            database, API, hingga teknologi backend. Setiap tahap disusun berdasarkan urutan fundamental yang perlu
-            dikuasai sebelum melangkah ke teknologi berikutnya.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- 3 Cards -->
-    <section id="features-section">
-      <div class="flex flex-col gap-[32px]">
-
-        <!-- Cards 1 -->
-        <div id="cards-1"
-          class="flex items-center flex-col lg:flex-row bg-[#171615] gap-[40px] p-[30px] md:p-[60px] rounded-[32px]">
-
-          <div class="md:w-1/2 order-1">
-            <img src="src/images/Mockups Website.jpg" alt="" class="w-full rounded-[12px]">
-          </div>
-
-          <div class="md:w-1/2 flex flex-col gap-[20px] order-2">
+    <main>
+      <!-- Hero Section -->
+      <section id="hero-section">
+        <div class="my-[60px] md:my-[100px]">
+          <div class="flex flex-col items-center justify-center gap-[32px]">
             <h1
-              class="text-white text-[26px] md:text-[32px] font-semibold leading-[26px] md:leading-[39.6px] tracking-[-1px]">
-              Kurikulum
-              Terstruktur Sesuai Kebutuhan Industri 2026
+              id="title-hero"
+              class="text-center text-[32px] leading-[32px] font-semibold tracking-[-1px] text-white md:text-[56px] md:leading-[56px]"
+            >
+              Roadmap Belajar Frontend & Backend Web Developer di Tahun 2026
             </h1>
 
-            <p class="reveal-text text-text-body text-[20px] leading-[26px] tracking-[-1px] md:text-justify">
-              Jangan buang waktu mempelajari teknologi yang sudah usang. Di Myatech.id, alur belajar dirancang secara
-              spesifik mengikuti ekosistem modern web development terkini. Setiap materi disusun langkah demi langkah
-              dari
-              fundamental hingga siap terjun ke proyek riil.
+            <p
+              id="paragraf-hero"
+              class="text-text-body text-center text-[20px] leading-[24px] font-medium tracking-[-1px] md:w-[812px]"
+            >
+              Ini dia Roadmap kuasai
+              <span class="text-white"> Frontend + Backend Web Developer </span>
+              di tengah Era Vibe Coding, alur yang sudah dibuat oleh
+              <span class="text-white">Myatech.id</span> terbaru 2026 serta
+              rincian disetiap tech stack yang harus dikerjakan sebelum pindah
+              ke bahasa, library atau framework lainnya
+            </p>
+
+            <a
+              id="button-hero"
+              href="#front-end-section"
+              class="bg-button-blue-default hover:bg-button-blue-hover inline-flex items-center gap-[10px] rounded-[12px] px-6 py-2.5 font-medium text-white transition duration-300"
+            >
+              <span>Lihat Roadmap</span>
+              <span>
+                <img src="src/icon/Arrow.svg" alt="" />
+              </span>
+            </a>
+          </div>
+
+          <!-- Image -->
+          <div id="image-hero" class="mt-[64px]">
+            <img
+              src="src/images/Image Hero Section.jpg"
+              alt=""
+              class="rounded- md:rounded-[18px]"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about-section">
+        <div
+          class="my-[60px] flex flex-col justify-between font-sans md:my-[120px] md:flex-row md:gap-[62px]"
+        >
+          <div>
+            <h1 class="font-sans text-[18px] text-white md:text-[22px]">
+              About Myatech
+            </h1>
+          </div>
+          <div
+            class="mt-[20px] flex w-auto flex-col gap-[16px] md:mt-0 md:w-[800px]"
+          >
+            <h1
+              class="text-justify text-[18px] leading-[23px] text-white md:text-[32px] md:leading-[32px]"
+            >
+              Myatech adalah roadmap belajar Web Development yang dirancang
+              untuk membantumu memahami perjalanan menjadi seorang Frontend dan
+              Backend Developer secara terstruktur.
+            </h1>
+            <p
+              class="text-justify text-[16px] leading-[16px] font-medium text-white opacity-80 md:text-[22px] md:leading-[22px]"
+            >
+              Mulai dari fundamental HTML, CSS, dan JavaScript, lalu lanjutkan
+              perjalananmu menuju framework, library, database, API, hingga
+              teknologi backend. Setiap tahap disusun berdasarkan urutan
+              fundamental yang perlu dikuasai sebelum melangkah ke teknologi
+              berikutnya.
             </p>
           </div>
         </div>
+      </section>
 
-        <!-- Cards 2 -->
-        <div id="cards-2"
-          class="flex items-center flex-col lg:flex-row bg-[#171615] gap-[40px] p-[30px] md:p-[60px] rounded-[32px]">
-
-          <div class="md:w-1/2 order-1 md:order-2">
-            <img src="src/images/Mockups Website.jpg" alt="" class="w-full rounded-[12px]">
-          </div>
-
-          <div class="md:w-1/2 flex flex-col gap-[20px] order-2 md:order-1">
-            <h1
-              class="text-white text-[26px] md:text-[32px] font-semibold leading-[26px] md:leading-[39.6px] tracking-[-1px]">
-              Fokus pada Fundamental Sebelum Menggunakan Framework
-            </h1>
-
-            <p class="reveal-text text-text-body text-[20px] leading-[26px] tracking-[-1px] md:text-justify">
-              Banyak developer terjebak langsung belajar framework tanpa tahu dasar yang kuat. Di sini, Anda akan
-              dituntun untuk menguasai inti dari JavaScript murni dan ekosistem CSS terlebih dahulu, memastikan Anda
-              tidak ketergantungan dan siap beradaptasi dengan tools apa pun dengan cepat.
-            </p>
-          </div>
-        </div>
-
-        <!-- Cards 3 -->
-        <div id="cards-3"
-          class="flex items-center flex-col lg:flex-row bg-[#171615] gap-[40px] p-[30px] md:p-[60px] rounded-[32px]">
-
-          <div class="md:w-1/2 order-1">
-            <img src="src/images/Mockups Website.jpg" alt="" class="w-full rounded-[12px]">
-          </div>
-
-          <div class="md:w-1/2 flex flex-col gap-[20px] order-2">
-            <h1
-              class="text-white text-[26px] md:text-[32px] font-semibold leading-[26px] md:leading-[39.6px] tracking-[-1px]">
-              Kurikulum
-              Terstruktur Sesuai Kebutuhan Industri 2026
-            </h1>
-
-            <p class="reveal-text text-text-body text-[20px] leading-[26px] tracking-[-1px] md:text-justify">
-              Ini dia Roadmap kuasai Frontend + Backend Web Developer di tengah Era Vibe Coding, alur yang sudah dibuat
-              oleh Myatech.id terbaru 2026 serta rincian disetiap tech stack yang harus dikerjakan sebelum pindah ke
-              bahasa, library atau framework lainnya
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Frontend Tech Stack -->
-    <section id="front-end-section">
-      <div class="my-[60px] md:my-[120px]">
-
-        <!-- Frame Info Frontend -->
-        <div id="section-frontend" class="flex items-start flex-col gap-[26px]">
-          <h1
-            class="md:text-[56px] md:leading-[56px] text-[32px] leading-[32px] text-center tracking-[-1px] text-white font-semibold">
-            Frontend Tech Stack
-          </h1>
-
-          <p id="reveal-text"
-            class="reveal-text text-[20px] md:w-[812px] leading-[24px] tracking-[-1px] text-text-body font-medium">
-            Ini dia Roadmap kuasai <span class="text-white">Frontend + Backend Web Developer</span> di tengah Era Vibe
-            Coding, alur yang sudah dibuat oleh <span class="text-white">Myatech.id</span> terbaru 2026 serta rincian
-            disetiap tech stack yang harus
-            dikerjakan sebelum pindah ke bahasa, library atau framework lainnya
-          </p>
-        </div>
-
-        <!-- Grid Tech Stack Frontend -->
-        <div id="grid-frontend-1" class="mt-[48px]">
-
-          <!-- Grid 1, 2 & 3 -->
-          <div class="flex flex-col md:flex-row gap-[16px] grid-cols-1 md:grid-cols-3">
-
-            <!-- Grid 1-->
-            <div
-              class="flex flex-col bg-[#171615] gap-[32px] p-[30px] rounded-[32px] hover:scale-105 transition duration-300">
-
-              <div class="flex flex-row justify-between">
-                <img id="floating-icon" src="src/icon/Typescript.svg" alt="HTML & CSS" width="35" height="35">
-                <a href="https://www.w3schools.com/html/default.asp" target="_blank">
-                  <img id="floating-icon" src="src/icon/Arrow-Grids.svg" alt="">
-                </a>
-              </div>
-
-              <div class="flex flex-col gap-[18px]">
-                <h1 class="text-white">Belajar HTML5 & CSS3</h1>
-                <p class="grid-reveal-text text-text-body">Lorem ipsum dolor sit amet, consectetur adipiscing elita sed
-                  do eiusmod tempor
-                  incididunt ut labore et
-                  dolore magna aliqua incididunt ut labore et dol</p>
-              </div>
-            </div>
-
-            <!-- Grid 2-->
-            <div
-              class="flex flex-col bg-[#171615] gap-[32px] p-[30px] rounded-[32px] hover:scale-105 transition duration-300">
-
-              <div class="flex flex-row justify-between">
-                <img id="floating-icon" src="src/icon/Tailwind.svg" alt="Tailwind" width="35" height="35">
-                <a href="src/roadmap/tailwind.html" target="_blank">
-                  <img id="floating-icon" src="src/icon/Arrow-Grids.svg" alt="">
-                </a>
-              </div>
-
-              <div class="flex flex-col gap-[18px]">
-                <h1 class="text-white">Belajar Tailwind CSS V4</h1>
-                <p class="grid-reveal-text text-text-body">Lorem ipsum dolor sit amet, consectetur adipiscing elita sed
-                  do eiusmod tempor
-                  incididunt ut labore et
-                  dolore magna aliqua incididunt ut labore et dol</p>
-              </div>
-            </div>
-
-            <!-- Grid 3-->
-            <div
-              class="flex flex-col bg-[#171615] gap-[32px] p-[30px] rounded-[32px] hover:scale-105 transition duration-300">
-
-              <div class="flex flex-row justify-between">
-                <img id="floating-icon" src="src/icon/JavaScript.svg" alt="JavaScript" width="35" height="35">
-                <a href="https://www.w3schools.com/js/default.asp" target="_blank">
-                  <img id="floating-icon" src="src/icon/Arrow-Grids.svg" alt="">
-                </a>
-              </div>
-
-              <div class="flex flex-col gap-[18px]">
-                <h1 class="text-white">Belajar JavaScript ES6+</h1>
-                <p class="grid-reveal-text text-text-body">Lorem ipsum dolor sit amet, consectetur adipiscing elita sed
-                  do eiusmod tempor
-                  incididunt ut labore et
-                  dolore magna aliqua incididunt ut labore et dol</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Grid 4 & 5 -->
-          <div class="flex flex-col md:flex-row gap-[16px] mt-[16px] grid-cols-1 md:grid-cols-2">
-
-            <!-- Grid 1-->
-            <div
-              class="flex flex-col bg-[#171615] gap-[32px] p-[30px] rounded-[32px] hover:scale-105 transition duration-300">
-
-              <div class="flex flex-row justify-between">
-                <img id="floating-icon" src="src/icon/React.svg" alt="React" width="35" height="35">
-                <a href="" target="_blank">
-                  <img id="floating-icon" src="src/icon/Arrow-Grids.svg" alt="">
-                </a>
-              </div>
-
-              <div class="flex flex-col gap-[18px]">
-                <h1 class="text-white">Belajar React JS</h1>
-                <p class="grid-reveal-text text-text-body">Lorem ipsum dolor sit amet, consectetur adipiscing elita sed
-                  do eiusmod tempor
-                  incididunt ut labore et
-                  dolore magna aliqua incididunt ut labore et dol</p>
-              </div>
-            </div>
-
-            <!-- Grid 2-->
-            <div
-              class="flex flex-col bg-[#171615] gap-[32px] p-[30px] rounded-[32px] hover:scale-105 transition duration-300">
-
-              <div class="flex flex-row justify-between">
-                <img id="floating-icon" src="src/icon/GSAP.svg" alt="GSAP" width="35" height="35">
-                <a href="https://gsap.com/" target="_blank">
-                  <img id="floating-icon" src="src/icon/Arrow-Grids.svg" alt="">
-                </a>
-              </div>
-
-              <div class="flex flex-col gap-[18px]">
-                <h1 class="text-white">Belajar GSAP (Animasi)</h1>
-                <p class="grid-reveal-text text-text-body">Lorem ipsum dolor sit amet, consectetur adipiscing elita sed
-                  do eiusmod tempor
-                  incididunt ut labore et
-                  dolore magna aliqua incididunt ut labore et dol</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Backend Tech Stack -->
-    <section id="backend-section">
-      <div class="my-[60px] md:my-[120px]">
-
-        <!-- Frame Info Backend -->
-        <div id="section-frontend" class="flex items-start flex-col gap-[26px]">
-          <h1
-            class="md:text-[56px] md:leading-[56px] text-[32px] leading-[32px] text-center tracking-[-1px] text-white font-semibold">
-            Backend & Database Tech Stack
-          </h1>
-
-          <p id="reveal-text"
-            class="reveal-text text-[20px] md:w-[812px] leading-[24px] tracking-[-1px] text-text-body font-medium">
-            Ini dia Roadmap kuasai <span class="text-white">Frontend + Backend Web Developer</span> di tengah Era Vibe
-            Coding, alur yang sudah dibuat oleh <span class="text-white">Myatech.id</span> terbaru 2026 serta rincian
-            disetiap tech stack yang harus
-            dikerjakan sebelum pindah ke bahasa, library atau framework lainnya
-          </p>
-        </div>
-
-        <div id="grid-backend-1" class="mt-[48px]">
-
-          <!-- Grid 1, 2 & 3 -->
-          <div class="flex flex-col md:flex-row gap-[16px] grid-cols-1 md:grid-cols-3">
-
-            <!-- Grid 1-->
-            <div
-              class="flex flex-col bg-[#171615] gap-[32px] p-[30px] rounded-[32px] hover:scale-105 transition duration-300">
-
-              <div class="flex flex-row justify-between">
-                <img id="floating-icon" src="src/icon/nodejs.svg" alt="Node JS" width="35" height="35">
-                <a href="https://www.w3schools.com/html/default.asp" target="_blank">
-                  <img id="floating-icon" src="src/icon/Arrow-Grids.svg" alt="">
-                </a>
-              </div>
-
-              <div class="flex flex-col gap-[18px]">
-                <h1 class="text-white">Belajar Node JS</h1>
-                <p class="grid-reveal-text text-text-body">Lorem ipsum dolor sit amet, consectetur adipiscing elita sed
-                  do eiusmod tempor
-                  incididunt ut labore et
-                  dolore magna aliqua incididunt ut labore et dol</p>
-              </div>
-            </div>
-
-            <!-- Grid 2-->
-            <div
-              class="flex flex-col bg-[#171615] gap-[32px] p-[30px] rounded-[32px] hover:scale-105 transition duration-300">
-
-              <div class="flex flex-row justify-between">
-                <img id="floating-icon" src="src/icon/expressdotjs.svg" alt="Express JS" width="35" height="35">
-                <a href="https://tailwindcss.com/" target="_blank">
-                  <img id="floating-icon" src="src/icon/Arrow-Grids.svg" alt="">
-                </a>
-              </div>
-
-              <div class="flex flex-col gap-[18px]">
-                <h1 class="text-white">Belajar Express JS</h1>
-                <p class="grid-reveal-text text-text-body">Lorem ipsum dolor sit amet, consectetur adipiscing elita sed
-                  do eiusmod tempor
-                  incididunt ut labore et
-                  dolore magna aliqua incididunt ut labore et dol</p>
-              </div>
-            </div>
-
-            <!-- Grid 3-->
-            <div
-              class="flex flex-col bg-[#171615] gap-[32px] p-[30px] rounded-[32px] hover:scale-105 transition duration-300">
-
-              <div class="flex flex-row justify-between">
-                <img id="floating-icon" src="src/icon/nodejs.svg" alt="MongoDB" width="35" height="35">
-                <a href="https://www.w3schools.com/js/default.asp" target="_blank">
-                  <img id="floating-icon" src="src/icon/Arrow-Grids.svg" alt="">
-                </a>
-              </div>
-
-              <div class="flex flex-col gap-[18px]">
-                <h1 class="text-white">Belajar MongoDB</h1>
-                <p class="grid-reveal-text text-text-body">Lorem ipsum dolor sit amet, consectetur adipiscing elita sed
-                  do eiusmod tempor
-                  incididunt ut labore et
-                  dolore magna aliqua incididunt ut labore et dol</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section id="faq-section" class="px-4 py-20 md:px-8 lg:px-16">
-      <div class="mx-auto max-w-[1200px]">
+      <!-- 3 Cards -->
+      <section id="features-section">
         <div class="flex flex-col gap-[32px]">
-          <h1
-            class="text-center text-[32px] leading-[32px] tracking-[-1px] text-white font-semibold md:text-[56px] md:leading-[56px]">
-            Pertanyaan yang Sering Diajukan
+          <!-- Cards 1 -->
+          <div
+            id="cards-1"
+            class="flex flex-col items-center gap-[40px] rounded-[32px] bg-[#171615] p-[30px] md:p-[60px] lg:flex-row"
+          >
+            <div class="order-1 md:w-1/2">
+              <img
+                src="src/images/Mockups Website.jpg"
+                alt=""
+                class="w-full rounded-[12px]"
+              />
+            </div>
+
+            <div class="order-2 flex flex-col gap-[20px] md:w-1/2">
+              <h1
+                class="text-[26px] leading-[26px] font-semibold tracking-[-1px] text-white md:text-[32px] md:leading-[39.6px]"
+              >
+                Kurikulum Terstruktur Sesuai Kebutuhan Industri 2026
+              </h1>
+
+              <p
+                class="reveal-text text-text-body text-[20px] leading-[26px] tracking-[-1px] md:text-justify"
+              >
+                Jangan buang waktu mempelajari teknologi yang sudah usang. Di
+                Myatech.id, alur belajar dirancang secara spesifik mengikuti
+                ekosistem modern web development terkini. Setiap materi disusun
+                langkah demi langkah dari fundamental hingga siap terjun ke
+                proyek riil.
+              </p>
+            </div>
+          </div>
+
+          <!-- Cards 2 -->
+          <div
+            id="cards-2"
+            class="flex flex-col items-center gap-[40px] rounded-[32px] bg-[#171615] p-[30px] md:p-[60px] lg:flex-row"
+          >
+            <div class="order-1 md:order-2 md:w-1/2">
+              <img
+                src="src/images/Mockups Website.jpg"
+                alt=""
+                class="w-full rounded-[12px]"
+              />
+            </div>
+
+            <div class="order-2 flex flex-col gap-[20px] md:order-1 md:w-1/2">
+              <h1
+                class="text-[26px] leading-[26px] font-semibold tracking-[-1px] text-white md:text-[32px] md:leading-[39.6px]"
+              >
+                Fokus pada Fundamental Sebelum Menggunakan Framework
+              </h1>
+
+              <p
+                class="reveal-text text-text-body text-[20px] leading-[26px] tracking-[-1px] md:text-justify"
+              >
+                Banyak developer terjebak langsung belajar framework tanpa tahu
+                dasar yang kuat. Di sini, Anda akan dituntun untuk menguasai
+                inti dari JavaScript murni dan ekosistem CSS terlebih dahulu,
+                memastikan Anda tidak ketergantungan dan siap beradaptasi dengan
+                tools apa pun dengan cepat.
+              </p>
+            </div>
+          </div>
+
+          <!-- Cards 3 -->
+          <div
+            id="cards-3"
+            class="flex flex-col items-center gap-[40px] rounded-[32px] bg-[#171615] p-[30px] md:p-[60px] lg:flex-row"
+          >
+            <div class="order-1 md:w-1/2">
+              <img
+                src="src/images/Mockups Website.jpg"
+                alt=""
+                class="w-full rounded-[12px]"
+              />
+            </div>
+
+            <div class="order-2 flex flex-col gap-[20px] md:w-1/2">
+              <h1
+                class="text-[26px] leading-[26px] font-semibold tracking-[-1px] text-white md:text-[32px] md:leading-[39.6px]"
+              >
+                Kurikulum Terstruktur Sesuai Kebutuhan Industri 2026
+              </h1>
+
+              <p
+                class="reveal-text text-text-body text-[20px] leading-[26px] tracking-[-1px] md:text-justify"
+              >
+                Ini dia Roadmap kuasai Frontend + Backend Web Developer di
+                tengah Era Vibe Coding, alur yang sudah dibuat oleh Myatech.id
+                terbaru 2026 serta rincian disetiap tech stack yang harus
+                dikerjakan sebelum pindah ke bahasa, library atau framework
+                lainnya
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Frontend Tech Stack -->
+      <section id="front-end-section">
+        <div class="my-[60px] md:my-[120px]">
+          <!-- Frame Info Frontend -->
+          <div
+            id="section-frontend"
+            class="flex flex-col items-start gap-[26px]"
+          >
+            <h1
+              class="text-center text-[32px] leading-[32px] font-semibold tracking-[-1px] text-white md:text-[56px] md:leading-[56px]"
+            >
+              Frontend Tech Stack
+            </h1>
+
+            <p
+              id="reveal-text"
+              class="reveal-text text-text-body text-[20px] leading-[24px] font-medium tracking-[-1px] md:w-[812px]"
+            >
+              Ini dia Roadmap kuasai
+              <span class="text-white">Frontend + Backend Web Developer</span>
+              di tengah Era Vibe Coding, alur yang sudah dibuat oleh
+              <span class="text-white">Myatech.id</span> terbaru 2026 serta
+              rincian disetiap tech stack yang harus dikerjakan sebelum pindah
+              ke bahasa, library atau framework lainnya
+            </p>
+          </div>
+
+          <!-- Grid Tech Stack Frontend -->
+          <div id="grid-frontend-1" class="mt-[48px]">
+            <!-- Grid 1, 2 & 3 -->
+            <div class="grid grid-cols-1 flex-col gap-[16px] md:grid-cols-3">
+              <!-- Grid 1-->
+              <div
+                class="flex flex-col gap-[32px] rounded-[32px] bg-[#171615] p-[30px] transition duration-300 hover:scale-105"
+              >
+                <div class="flex flex-row justify-between">
+                  <img
+                    id="floating-icon"
+                    src="src/icon/Typescript.svg"
+                    alt="HTML & CSS"
+                    width="35"
+                    height="35"
+                  />
+                  <a
+                    href="https://www.w3schools.com/html/default.asp"
+                    target="_blank"
+                  >
+                    <img
+                      id="floating-icon"
+                      src="src/icon/Arrow-Grids.svg"
+                      alt=""
+                    />
+                  </a>
+                </div>
+
+                <div class="flex flex-col gap-[18px]">
+                  <h1 class="text-white">Belajar HTML5 & CSS3</h1>
+                  <p class="grid-reveal-text text-text-body">
+                    Pahami dasar-dasar pembuatan web modern menggunakan struktur
+                    HTML5 yang semantik dan styling elegan dengan CSS3.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Grid 2-->
+              <div
+                class="flex flex-col gap-[32px] rounded-[32px] bg-[#171615] p-[30px] transition duration-300 hover:scale-105"
+              >
+                <div class="flex flex-row justify-between">
+                  <img
+                    id="floating-icon"
+                    src="src/icon/Tailwind.svg"
+                    alt="Tailwind"
+                    width="35"
+                    height="35"
+                  />
+                  <a href="src/roadmap/tailwind.html" target="_blank">
+                    <img
+                      id="floating-icon"
+                      src="src/icon/Arrow-Grids.svg"
+                      alt=""
+                    />
+                  </a>
+                </div>
+
+                <div class="flex flex-col gap-[18px]">
+                  <h1 class="text-white">Belajar Tailwind CSS V4</h1>
+                  <p class="grid-reveal-text text-text-body">
+                    Kuasai framework CSS utility-first versi terbaru untuk
+                    membangun antarmuka web yang responsif dengan cepat dan
+                    efisien.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Grid 3-->
+              <div
+                class="flex flex-col gap-[32px] rounded-[32px] bg-[#171615] p-[30px] transition duration-300 hover:scale-105"
+              >
+                <div class="flex flex-row justify-between">
+                  <img
+                    id="floating-icon"
+                    src="src/icon/JavaScript.svg"
+                    alt="JavaScript"
+                    width="35"
+                    height="35"
+                  />
+                  <a
+                    href="https://www.w3schools.com/js/default.asp"
+                    target="_blank"
+                  >
+                    <img
+                      id="floating-icon"
+                      src="src/icon/Arrow-Grids.svg"
+                      alt=""
+                    />
+                  </a>
+                </div>
+
+                <div class="flex flex-col gap-[18px]">
+                  <h1 class="text-white">Belajar JavaScript ES6+</h1>
+                  <p class="grid-reveal-text text-text-body">
+                    Pelajari bahasa pemrograman inti web modern dari tingkat
+                    dasar hingga fitur lanjutan ES6+ untuk interaktivitas
+                    dinamis.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Grid 4 & 5 -->
+            <div class="mt-[16px] grid grid-cols-1 gap-[16px] md:grid-cols-2">
+              <!-- Grid 1-->
+              <div
+                class="flex flex-col gap-[32px] rounded-[32px] bg-[#171615] p-[30px] transition duration-300 hover:scale-105"
+              >
+                <div class="flex flex-row justify-between">
+                  <img
+                    id="floating-icon"
+                    src="src/icon/React.svg"
+                    alt="React"
+                    width="35"
+                    height="35"
+                  />
+                  <a href="" target="_blank">
+                    <img
+                      id="floating-icon"
+                      src="src/icon/Arrow-Grids.svg"
+                      alt=""
+                    />
+                  </a>
+                </div>
+
+                <div class="flex flex-col gap-[18px]">
+                  <h1 class="text-white">Belajar React JS</h1>
+                  <p class="grid-reveal-text text-text-body">
+                    Bangun aplikasi web interaktif berskala besar berbasis
+                    komponen menggunakan library populer dari ekosistem
+                    JavaScript.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Grid 2-->
+              <div
+                class="flex flex-col gap-[32px] rounded-[32px] bg-[#171615] p-[30px] transition duration-300 hover:scale-105"
+              >
+                <div class="flex flex-row justify-between">
+                  <img
+                    id="floating-icon"
+                    src="src/icon/GSAP.svg"
+                    alt="GSAP"
+                    width="35"
+                    height="35"
+                  />
+                  <a href="https://gsap.com/" target="_blank">
+                    <img
+                      id="floating-icon"
+                      src="src/icon/Arrow-Grids.svg"
+                      alt=""
+                    />
+                  </a>
+                </div>
+
+                <div class="flex flex-col gap-[18px]">
+                  <h1 class="text-white">Belajar GSAP (Animasi)</h1>
+                  <p class="grid-reveal-text text-text-body">
+                    Buat animasi web yang memukau, mulus, dan performa tinggi
+                    menggunakan GreenSock Animation Platform (GSAP).
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Backend Tech Stack -->
+      <section id="backend-section">
+        <div class="my-[60px] md:my-[120px]">
+          <!-- Frame Info Backend -->
+          <div
+            id="section-frontend"
+            class="flex flex-col items-start gap-[26px]"
+          >
+            <h1
+              class="text-center text-[32px] leading-[32px] font-semibold tracking-[-1px] text-white md:text-[56px] md:leading-[56px]"
+            >
+              Backend & Database Tech Stack
+            </h1>
+
+            <p
+              id="reveal-text"
+              class="reveal-text text-text-body text-[20px] leading-[24px] font-medium tracking-[-1px] md:w-[812px]"
+            >
+              Ini dia Roadmap kuasai
+              <span class="text-white">Frontend + Backend Web Developer</span>
+              di tengah Era Vibe Coding, alur yang sudah dibuat oleh
+              <span class="text-white">Myatech.id</span> terbaru 2026 serta
+              rincian disetiap tech stack yang harus dikerjakan sebelum pindah
+              ke bahasa, library atau framework lainnya
+            </p>
+          </div>
+
+          <div id="grid-backend-1" class="mt-[48px]">
+            <!-- Grid 1, 2 & 3 -->
+            <div class="grid grid-cols-1 gap-[16px] md:grid-cols-3">
+              <!-- Grid 1-->
+              <div
+                class="flex flex-col gap-[32px] rounded-[32px] bg-[#171615] p-[30px] transition duration-300 hover:scale-105"
+              >
+                <div class="flex flex-row justify-between">
+                  <img
+                    id="floating-icon"
+                    src="src/icon/nodejs.svg"
+                    alt="Node JS"
+                    width="35"
+                    height="35"
+                  />
+                  <a
+                    href="https://www.w3schools.com/html/default.asp"
+                    target="_blank"
+                  >
+                    <img
+                      id="floating-icon"
+                      src="src/icon/Arrow-Grids.svg"
+                      alt=""
+                    />
+                  </a>
+                </div>
+
+                <div class="flex flex-col gap-[18px]">
+                  <h1 class="text-white">Belajar Node JS</h1>
+                  <p class="grid-reveal-text text-text-body">
+                    Pelajari cara menjalankan JavaScript di sisi server
+                    (server-side) untuk membangun aplikasi backend yang cepat
+                    dan scalable.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Grid 2-->
+              <div
+                class="flex flex-col gap-[32px] rounded-[32px] bg-[#171615] p-[30px] transition duration-300 hover:scale-105"
+              >
+                <div class="flex flex-row justify-between">
+                  <img
+                    id="floating-icon"
+                    src="src/icon/expressdotjs.svg"
+                    alt="Express JS"
+                    width="35"
+                    height="35"
+                  />
+                  <a href="https://tailwindcss.com/" target="_blank">
+                    <img
+                      id="floating-icon"
+                      src="src/icon/Arrow-Grids.svg"
+                      alt=""
+                    />
+                  </a>
+                </div>
+
+                <div class="flex flex-col gap-[18px]">
+                  <h1 class="text-white">Belajar Express JS</h1>
+                  <p class="grid-reveal-text text-text-body">
+                    Kembangkan aplikasi web dan RESTful API dengan mudah dan
+                    cepat menggunakan framework minimalis untuk Node.js ini.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Grid 3-->
+              <div
+                class="flex flex-col gap-[32px] rounded-[32px] bg-[#171615] p-[30px] transition duration-300 hover:scale-105"
+              >
+                <div class="flex flex-row justify-between">
+                  <img
+                    id="floating-icon"
+                    src="src/icon/nodejs.svg"
+                    alt="MongoDB"
+                    width="35"
+                    height="35"
+                  />
+                  <a
+                    href="https://www.w3schools.com/js/default.asp"
+                    target="_blank"
+                  >
+                    <img
+                      id="floating-icon"
+                      src="src/icon/Arrow-Grids.svg"
+                      alt=""
+                    />
+                  </a>
+                </div>
+
+                <div class="flex flex-col gap-[18px]">
+                  <h1 class="text-white">Belajar MongoDB</h1>
+                  <p class="grid-reveal-text text-text-body">
+                    Kenali pengelolaan database NoSQL berbasis dokumen yang
+                    fleksibel dan handal untuk menyimpan data aplikasi modern.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section id="faq-section" class="px-4 py-20 md:px-8 lg:px-16">
+        <div class="mx-auto max-w-[1200px]">
+          <div class="flex flex-col gap-[32px]">
+            <h1
+              class="text-center text-[32px] leading-[32px] font-semibold tracking-[-1px] text-white md:text-[56px] md:leading-[56px]"
+            >
+              Pertanyaan yang Sering Diajukan
+            </h1>
+
+            <p
+              class="reveal-text text-text-body text-center text-[16px] leading-[24px] font-medium tracking-[-0.5px] md:text-[20px]"
+            >
+              Semua yang perlu Anda ketahui sebelum mulai menggunakan website
+              ini, mulai dari privasi dan kompatibilitas hingga cara riwayat
+              clipboard Anda disimpan dan ditangani.
+            </p>
+          </div>
+
+          <div class="mt-12 flex flex-col gap-4">
+            <!-- FAQ Item 1 -->
+            <details
+              class="group rounded-2xl bg-[#171717] transition-all duration-300 open:bg-[#1d1d1d]"
+            >
+              <summary
+                class="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-5 text-sm font-medium text-white md:text-base"
+              >
+                <span>Apa itu MyaTech.id?</span>
+                <span
+                  class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-white/20 text-xl font-light text-white transition-transform duration-300 group-open:rotate-45"
+                >
+                  +
+                </span>
+              </summary>
+
+              <div class="text-text-body px-5 pb-5 text-sm leading-6">
+                MyaTech.id adalah platform pembelajaran teknologi yang membantu
+                Anda memahami berbagai Tech Stack melalui materi yang
+                terstruktur, sederhana, dan mudah diikuti, terutama bagi pemula.
+              </div>
+            </details>
+
+            <!-- FAQ Item 2 -->
+            <details
+              class="group rounded-2xl bg-[#171717] transition-all duration-300 open:bg-[#1d1d1d]"
+            >
+              <summary
+                class="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-5 text-sm font-medium text-white md:text-base"
+              >
+                <span
+                  >Apakah roadmap belajar ini cocok untuk pemula tanpa
+                  background IT?</span
+                >
+                <span
+                  class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-white/20 text-xl font-light text-white transition-transform duration-300 group-open:rotate-45"
+                >
+                  +
+                </span>
+              </summary>
+
+              <div class="text-text-body px-5 pb-5 text-sm leading-6">
+                Ya. Roadmap disusun secara bertahap mulai dari konsep dasar
+                hingga materi lanjutan. Anda tidak harus memiliki pengalaman IT
+                sebelumnya, selama bersedia belajar dan mengikuti setiap tahap
+                secara konsisten.
+              </div>
+            </details>
+
+            <!-- FAQ Item 3 -->
+            <details
+              class="group rounded-2xl bg-[#171717] transition-all duration-300 open:bg-[#1d1d1d]"
+            >
+              <summary
+                class="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-5 text-sm font-medium text-white md:text-base"
+              >
+                <span>Bagaimana cara menggunakan roadmap di website ini?</span>
+                <span
+                  class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-white/20 text-xl font-light text-white transition-transform duration-300 group-open:rotate-45"
+                >
+                  +
+                </span>
+              </summary>
+
+              <div class="text-text-body px-5 pb-5 text-sm leading-6">
+                Pilih bidang atau Tech Stack yang ingin dipelajari, kemudian
+                ikuti urutan materi dari tahap dasar ke tahap berikutnya. Setiap
+                tahap dapat digunakan sebagai panduan untuk menentukan fokus
+                belajar Anda.
+              </div>
+            </details>
+
+            <!-- FAQ Item 4 -->
+            <details
+              class="group rounded-2xl bg-[#171717] transition-all duration-300 open:bg-[#1d1d1d]"
+            >
+              <summary
+                class="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-5 text-sm font-medium text-white md:text-base"
+              >
+                <span>Apakah Tech Stack yang tersedia terus diperbarui?</span>
+                <span
+                  class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-white/20 text-xl font-light text-white transition-transform duration-300 group-open:rotate-45"
+                >
+                  +
+                </span>
+              </summary>
+
+              <div class="text-text-body px-5 pb-5 text-sm leading-6">
+                Kami berupaya memperbarui daftar Tech Stack dan materi secara
+                berkala agar tetap relevan dengan perkembangan teknologi. Meski
+                demikian, beberapa materi mungkin memerlukan referensi tambahan
+                dari dokumentasi resmi masing-masing teknologi.
+              </div>
+            </details>
+
+            <!-- FAQ Item 5 -->
+            <details
+              class="group rounded-2xl bg-[#171717] transition-all duration-300 open:bg-[#1d1d1d]"
+            >
+              <summary
+                class="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-5 text-sm font-medium text-white md:text-base"
+              >
+                <span
+                  >Apa yang muncul saat saya mengeklik salah satu kartu Tech
+                  Stack?</span
+                >
+                <span
+                  class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-white/20 text-xl font-light text-white transition-transform duration-300 group-open:rotate-45"
+                >
+                  +
+                </span>
+              </summary>
+
+              <div class="text-text-body px-5 pb-5 text-sm leading-6">
+                Saat kartu dipilih, Anda dapat melihat informasi dan tahapan
+                belajar yang berkaitan dengan Tech Stack tersebut. Beberapa
+                kartu juga dapat mengarahkan Anda ke materi, dokumentasi, atau
+                sumber pembelajaran tambahan.
+              </div>
+            </details>
+
+            <!-- FAQ Item 6 -->
+            <details
+              class="group rounded-2xl bg-[#171717] transition-all duration-300 open:bg-[#1d1d1d]"
+            >
+              <summary
+                class="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-5 text-sm font-medium text-white md:text-base"
+              >
+                <span
+                  >Saya sudah menguasai satu Tech Stack, apa langkah
+                  selanjutnya?</span
+                >
+                <span
+                  class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-white/20 text-xl font-light text-white transition-transform duration-300 group-open:rotate-45"
+                >
+                  +
+                </span>
+              </summary>
+
+              <div class="text-text-body px-5 pb-5 text-sm leading-6">
+                Setelah menguasai dasar suatu Tech Stack, Anda dapat memperdalam
+                konsep lanjutan, membuat proyek nyata, mempelajari teknologi
+                yang saling melengkapi, atau mulai membangun portofolio untuk
+                menguji kemampuan Anda.
+              </div>
+            </details>
+
+            <!-- FAQ Item 7 -->
+            <details
+              class="group rounded-2xl bg-[#171717] transition-all duration-300 open:bg-[#1d1d1d]"
+            >
+              <summary
+                class="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-5 text-sm font-medium text-white md:text-base"
+              >
+                <span
+                  >Apakah website ini dapat digunakan melalui perangkat
+                  mobile?</span
+                >
+                <span
+                  class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-white/20 text-xl font-light text-white transition-transform duration-300 group-open:rotate-45"
+                >
+                  +
+                </span>
+              </summary>
+
+              <div class="text-text-body px-5 pb-5 text-sm leading-6">
+                Ya. Tampilan website dirancang agar dapat digunakan pada
+                desktop, tablet, dan perangkat mobile. Untuk pengalaman terbaik,
+                gunakan browser versi terbaru dan koneksi internet yang stabil.
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section (Belum di Isi) -->
+      <section id="cta-section"></section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 bg-black pt-16 pb-12 text-white">
+      <div
+        class="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-6 pb-12 md:grid-cols-3"
+      >
+        <!-- Info Brand -->
+        <div>
+          <div class="mb-4 flex items-center gap-2 text-lg font-medium">
+            <span
+              ><img
+                src="src/icon/Logo Myatech.jpeg"
+                alt=""
+                class="h-8 w-8 rounded-md"
+            /></span>
+            Myatech.id
+          </div>
+          <h3 class="text-md font-regular max-w-xs leading-6">
+            Website Membantu Roadmap Belajar FullStack Web Developer di Tahun
+            2026
+          </h3>
+          <p class="mt-6 text-xs text-gray-500">Copyright ©2026 Myatech.id</p>
+        </div>
+
+        <!-- Alamat -->
+        <div>
+          <h4 class="mb-2 text-sm text-gray-400">Alamat</h4>
+          <p class="text-sm font-medium">Karangasem,Bali</p>
+
+          <h4 class="mt-6 mb-2 text-sm text-gray-400">Email</h4>
+          <p class="text-sm font-medium">mahayanaa3@gmail.com</p>
+        </div>
+
+        <!-- Kontak & Medsos -->
+        <div>
+          <h4 class="mb-2 text-sm text-gray-400">Kontak</h4>
+          <p class="text-sm font-medium">+62 887 366 24</p>
+          <h4 class="mt-6 mb-2 text-sm text-gray-400">Media Sosial</h4>
+          <div class="flex gap-4"></div>
+        </div>
+      </div>
+
+      <!-- Big Typography -->
+      <div class="my-8 text-center">
+        <h1
+          class="text-center text-7xl font-medium tracking-[-2px] text-white/90 md:text-[200px]"
+        >
+          Myatech.id
+        </h1>
+      </div>
+
+      <!-- Back To Top Button -->
+      <div class="pt-6 text-center">
+        <a
+          href="#top"
+          class="inline-flex w-87.5 items-center justify-between gap-2 rounded-[22px] bg-white px-6 py-3 text-sm font-semibold text-black transition hover:bg-gray-200 md:w-full"
+        >
+          <h1 class="text-[#111827] opacity-80">
+            Kembali Ke Halaman Paling Atas
           </h1>
-
-          <p
-            class="reveal-text text-center text-[16px] leading-[24px] tracking-[-0.5px] text-text-body font-medium md:text-[20px]">
-            Semua yang perlu Anda ketahui sebelum mulai menggunakan website ini,
-            mulai dari privasi dan kompatibilitas hingga cara riwayat clipboard
-            Anda disimpan dan ditangani.
-          </p>
-        </div>
-
-        <div class="mt-12 flex flex-col gap-4">
-          <!-- FAQ Item 1 -->
-          <details class="group rounded-2xl bg-[#171717] transition-all duration-300 open:bg-[#1d1d1d]">
-            <summary
-              class="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-5 text-sm font-medium text-white md:text-base">
-              <span>Apa itu MyaTech.id?</span>
-              <span
-                class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-white/20 text-xl font-light text-white transition-transform duration-300 group-open:rotate-45">
-                +
-              </span>
-            </summary>
-
-            <div class="px-5 pb-5 text-sm leading-6 text-text-body">
-              MyaTech.id adalah platform pembelajaran teknologi yang membantu Anda
-              memahami berbagai Tech Stack melalui materi yang terstruktur,
-              sederhana, dan mudah diikuti, terutama bagi pemula.
-            </div>
-          </details>
-
-          <!-- FAQ Item 2 -->
-          <details class="group rounded-2xl bg-[#171717] transition-all duration-300 open:bg-[#1d1d1d]">
-            <summary
-              class="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-5 text-sm font-medium text-white md:text-base">
-              <span>Apakah roadmap belajar ini cocok untuk pemula tanpa background IT?</span>
-              <span
-                class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-white/20 text-xl font-light text-white transition-transform duration-300 group-open:rotate-45">
-                +
-              </span>
-            </summary>
-
-            <div class="px-5 pb-5 text-sm leading-6 text-text-body">
-              Ya. Roadmap disusun secara bertahap mulai dari konsep dasar hingga
-              materi lanjutan. Anda tidak harus memiliki pengalaman IT sebelumnya,
-              selama bersedia belajar dan mengikuti setiap tahap secara konsisten.
-            </div>
-          </details>
-
-          <!-- FAQ Item 3 -->
-          <details class="group rounded-2xl bg-[#171717] transition-all duration-300 open:bg-[#1d1d1d]">
-            <summary
-              class="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-5 text-sm font-medium text-white md:text-base">
-              <span>Bagaimana cara menggunakan roadmap di website ini?</span>
-              <span
-                class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-white/20 text-xl font-light text-white transition-transform duration-300 group-open:rotate-45">
-                +
-              </span>
-            </summary>
-
-            <div class="px-5 pb-5 text-sm leading-6 text-text-body">
-              Pilih bidang atau Tech Stack yang ingin dipelajari, kemudian ikuti
-              urutan materi dari tahap dasar ke tahap berikutnya. Setiap tahap dapat
-              digunakan sebagai panduan untuk menentukan fokus belajar Anda.
-            </div>
-          </details>
-
-          <!-- FAQ Item 4 -->
-          <details class="group rounded-2xl bg-[#171717] transition-all duration-300 open:bg-[#1d1d1d]">
-            <summary
-              class="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-5 text-sm font-medium text-white md:text-base">
-              <span>Apakah Tech Stack yang tersedia terus diperbarui?</span>
-              <span
-                class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-white/20 text-xl font-light text-white transition-transform duration-300 group-open:rotate-45">
-                +
-              </span>
-            </summary>
-
-            <div class="px-5 pb-5 text-sm leading-6 text-text-body">
-              Kami berupaya memperbarui daftar Tech Stack dan materi secara berkala
-              agar tetap relevan dengan perkembangan teknologi. Meski demikian,
-              beberapa materi mungkin memerlukan referensi tambahan dari dokumentasi
-              resmi masing-masing teknologi.
-            </div>
-          </details>
-
-          <!-- FAQ Item 5 -->
-          <details class="group rounded-2xl bg-[#171717] transition-all duration-300 open:bg-[#1d1d1d]">
-            <summary
-              class="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-5 text-sm font-medium text-white md:text-base">
-              <span>Apa yang muncul saat saya mengeklik salah satu kartu Tech Stack?</span>
-              <span
-                class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-white/20 text-xl font-light text-white transition-transform duration-300 group-open:rotate-45">
-                +
-              </span>
-            </summary>
-
-            <div class="px-5 pb-5 text-sm leading-6 text-text-body">
-              Saat kartu dipilih, Anda dapat melihat informasi dan tahapan belajar
-              yang berkaitan dengan Tech Stack tersebut. Beberapa kartu juga dapat
-              mengarahkan Anda ke materi, dokumentasi, atau sumber pembelajaran
-              tambahan.
-            </div>
-          </details>
-
-          <!-- FAQ Item 6 -->
-          <details class="group rounded-2xl bg-[#171717] transition-all duration-300 open:bg-[#1d1d1d]">
-            <summary
-              class="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-5 text-sm font-medium text-white md:text-base">
-              <span>Saya sudah menguasai satu Tech Stack, apa langkah selanjutnya?</span>
-              <span
-                class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-white/20 text-xl font-light text-white transition-transform duration-300 group-open:rotate-45">
-                +
-              </span>
-            </summary>
-
-            <div class="px-5 pb-5 text-sm leading-6 text-text-body">
-              Setelah menguasai dasar suatu Tech Stack, Anda dapat memperdalam
-              konsep lanjutan, membuat proyek nyata, mempelajari teknologi yang
-              saling melengkapi, atau mulai membangun portofolio untuk menguji
-              kemampuan Anda.
-            </div>
-          </details>
-
-          <!-- FAQ Item 7 -->
-          <details class="group rounded-2xl bg-[#171717] transition-all duration-300 open:bg-[#1d1d1d]">
-            <summary
-              class="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-5 text-sm font-medium text-white md:text-base">
-              <span>Apakah website ini dapat digunakan melalui perangkat mobile?</span>
-              <span
-                class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-white/20 text-xl font-light text-white transition-transform duration-300 group-open:rotate-45">
-                +
-              </span>
-            </summary>
-
-            <div class="px-5 pb-5 text-sm leading-6 text-text-body">
-              Ya. Tampilan website dirancang agar dapat digunakan pada desktop,
-              tablet, dan perangkat mobile. Untuk pengalaman terbaik, gunakan
-              browser versi terbaru dan koneksi internet yang stabil.
-            </div>
-          </details>
-        </div>
+          <span><img src="src/icon/chevron-up.svg" alt="Arrow Top" /></span>
+        </a>
       </div>
-    </section>
+    </footer>
 
-    <!-- CTA Section (Belum di Isi) -->
-    <section id="cta-section">
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer class="bg-black text-white pt-16 pb-12 border-t border-white/10">
-    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 pb-12">
-      <!-- Info Brand -->
-      <div>
-        <div class="flex items-center gap-2 font-medium text-lg mb-4">
-          <span><img src="src/icon/Logo Myatech.jpeg" alt="" class="w-8 h-8 rounded-md"></span> Myatech.id
-        </div>
-        <h3 class="text-md font-regular leading-6 max-w-xs">
-          Website Membantu Roadmap Belajar FullStack Web Developer di Tahun 2026
-        </h3>
-        <p class="text-xs text-gray-500 mt-6">Copyright ©2026 Myatech.id</p>
-      </div>
-
-      <!-- Alamat -->
-      <div>
-        <h4 class="text-gray-400 text-sm mb-2">Alamat</h4>
-        <p class="text-sm font-medium">Karangasem,Bali</p>
-
-        <h4 class="text-gray-400 text-sm mt-6 mb-2">Email</h4>
-        <p class="text-sm font-medium">mahayanaa3@gmail.com</p>
-      </div>
-
-      <!-- Kontak & Medsos -->
-      <div>
-        <h4 class="text-gray-400 text-sm mb-2">Kontak</h4>
-        <p class="text-sm font-medium">+62 887 366 24</p>
-        <h4 class="text-gray-400 text-sm mt-6 mb-2">Media Sosial</h4>
-        <div class="flex gap-4">
-        </div>
-      </div>
-    </div>
-
-    <!-- Big Typography -->
-    <div class="text-center my-8">
-      <h1 class="text-7xl md:text-[200px] text-center font-medium tracking-[-2px] text-white/90">
-        Myatech.id
-      </h1>
-    </div>
-
-    <!-- Back To Top Button -->
-    <div class="text-center pt-6">
-      <a href="#top"
-        class="w-87.5 md:w-full inline-flex items-center justify-between gap-2 bg-white text-black px-6 py-3 rounded-[22px] font-semibold text-sm hover:bg-gray-200 transition">
-        <h1 class="text-[#111827] opacity-80">Kembali Ke Halaman Paling Atas</h1>
-        <span><img src="src/icon/chevron-up.svg" alt="Arrow Top"></span>
-      </a>
-    </div>
-  </footer>
-
-
-  <script type="module" src="src/js/script.js"></script>
-  <script type="module" src="src/js/main.js"></script>
-</body>
-
+    <script type="module" src="src/js/script.js"></script>
+    <script type="module" src="src/js/main.js"></script>
+  </body>
 </html>
